@@ -1,0 +1,22 @@
+{
+  "name": "myjobapplications",
+  "version": "1.0.0",
+  "description": "Uma API que permite salvar dados de vagas que você já se candidatou-se, mantendo um histórico para uso pessoal.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joao-Darwin/my-job-applications.git"
+  },
+  "author": "João Darwin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Joao-Darwin/my-job-applications/issues"
+  },
+  "homepage": "https://github.com/Joao-Darwin/my-job-applications#readme",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
