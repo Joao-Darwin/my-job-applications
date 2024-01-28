@@ -2,8 +2,10 @@
   "name": "myjobapplications",
   "version": "1.0.0",
   "description": "Uma API que permite salvar dados de vagas que você já se candidatou-se, mantendo um histórico para uso pessoal.",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
+    "dev": "nodemon src/index.ts",
+    "start": "tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
