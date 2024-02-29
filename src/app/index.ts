@@ -1,15 +1,16 @@
 import cors from 'cors';
-import express, { Request, Response } from 'express';
+import express from 'express';
+import userRouters from '../routers/UserRouters';
+import vancancyRouters from '../routers/VancancyRouters';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.get('/test', (req: Request, res: Response) => {
-    res.status(200).json({
-        message: "Hello World"
-    })
-})
+const basePathUrlApi = "/api";
+
+app.use(`${basePathUrlApi}/users`, userRouters);
+app.use(`${basePathUrlApi}/vancancies`, vancancyRouters);
 
 export default app;
