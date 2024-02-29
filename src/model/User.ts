@@ -35,6 +35,7 @@ const userSchema = new Schema<IUser>({
     updated_at: {
         type: Date,
         required: true,
+        default: Date.now
     },
     vagas: [{
         type: Schema.Types.UUID, 
