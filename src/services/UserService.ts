@@ -12,6 +12,14 @@ const createUser = async (user: IUserRequest) => {
     }
 }
 
+const findUserById = async (userId: string | string[]) => {
+    try {
+        return await User.findById(userId);
+    } catch (error) {
+        throw error
+    }
+}
+
 const deleteUser = async (id: String) => {
     try {
         const user = await User.findById(id);
@@ -26,4 +34,4 @@ const deleteUser = async (id: String) => {
     }
 }
 
-export { createUser, deleteUser };
+export { createUser, findUserById, deleteUser };
