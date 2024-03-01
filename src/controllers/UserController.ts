@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import IUserRequest from "../interfaces/dtos/request/IUserRequest";
-import { createUser } from "../services/UserService";
+import { createUser, deleteUser } from "../services/UserService";
 
 const create = async (req: Request, res: Response) => {
     try {
@@ -16,6 +16,24 @@ const create = async (req: Request, res: Response) => {
     }
 }
 
+const remove = async (req: Request, res: Response) => {
+    try {
+
+        const { id } = req.params
+
+        await deleteUser(id);
+
+        return res.status(201).json({
+            message: "User deleted with success!"
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: error
+        })
+    }
+}
+
 export default {
-    create
+    create,
+    remove
 }
