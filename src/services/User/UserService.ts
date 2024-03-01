@@ -20,6 +20,32 @@ const findUserById = async (userId: string | string[]) => {
     }
 }
 
+const findUserByEmail = async (email: string) => {
+    try {
+        return await User.findOne({
+            email: email
+        }, {
+            _id: true,
+            password: true
+        })
+    } catch (error) {
+        throw error
+    }
+}
+
+const findUserByUsername = async (username: string) => {
+    try {
+        return await User.findOne({
+            username: username
+        }, {
+            _id: true,
+            password: true
+        })
+    } catch (error) {
+        throw error
+    }
+}
+
 const deleteUser = async (id: String) => {
     try {
         const user = await User.findById(id);
@@ -34,4 +60,4 @@ const deleteUser = async (id: String) => {
     }
 }
 
-export { createUser, findUserById, deleteUser };
+export { createUser, findUserById, findUserByEmail, findUserByUsername, deleteUser };
