@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import IUserRequest from "../interfaces/dtos/request/IUserRequest";
-import { createUser, deleteUser, findUserById } from "../services/UserService";
+import IUserRequest from "../../interfaces/dtos/request/IUserRequest";
+import { createUser, deleteUser, findUserById } from "../../services/UserService";
 
 const create = async (req: Request, res: Response) => {
     try {
