@@ -18,8 +18,8 @@ const create = async (req: Request, res: Response) => {
 
 const findById = async (req: Request, res: Response) => {
     try {
-        const { userId } = req.headers;
-
+        const { userId } = req;
+        
         if (userId) {
             const user = await findUserById(userId);
 
