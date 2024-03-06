@@ -2,6 +2,14 @@ import IUserRequest from "../../interfaces/dtos/request/IUserRequest";
 import User from "../../model/User";
 import { createHashPassword } from "../../util/bcrypt";
 
+const userProjection = {
+    _id: true,
+    name: true,
+    username: true,
+    email: true,
+    avatar: true
+};
+
 const createUser = async (user: IUserRequest) => {
     try {
         user.password = await createHashPassword(user.password);
@@ -14,7 +22,7 @@ const createUser = async (user: IUserRequest) => {
 
 const findUserById = async (userId: string | string[]) => {
     try {
-        return await User.findById(userId);
+        return await User.findById(userId, userProjection);
     } catch (error) {
         throw error
     }
