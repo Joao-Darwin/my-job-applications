@@ -54,6 +54,30 @@ const findUserByUsername = async (username: string) => {
     }
 }
 
+const updateUser = async (id: string, userUpdated: IUserRequest) => {
+    try {
+        let user = await User.findById(id, userProjection);
+
+        if (!user) {
+            throw "User don't find!";
+        }
+
+        user.name = userUpdated.name;
+        user.username = userUpdated.username;
+        user.email = userUpdated.email;
+        user.avatar = userUpdated.avatar;
+        if (userUpdated.password) {
+            user.password = await createHashPassword(userUpdated.password);
+        }
+
+        await user.save();
+
+        return user;
+    } catch (error) {
+        throw error
+    }
+}
+
 const deleteUser = async (id: String) => {
     try {
         const user = await User.findById(id);
@@ -68,4 +92,4 @@ const deleteUser = async (id: String) => {
     }
 }
 
-export { createUser, findUserById, findUserByEmail, findUserByUsername, deleteUser };
+export { createUser, findUserById, findUserByEmail, findUserByUsername, updateUser, deleteUser };
