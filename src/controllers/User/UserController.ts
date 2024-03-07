@@ -51,7 +51,6 @@ const update = async (req: Request, res: Response) => {
 
 const remove = async (req: Request, res: Response) => {
     try {
-
         const { userId } = req;
 
         await deleteUser(userId);
