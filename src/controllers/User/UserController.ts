@@ -49,21 +49,6 @@ const update = async (req: Request, res: Response) => {
     }
 }
 
-const updateById = async (req: Request, res: Response) => {
-    try {
-        const { id } = req.params;
-        let user: IUserRequest = req.body;
-
-        user = await updateUser(id, user);
-
-        return res.status(200).json(user);
-    } catch (error) {
-        return res.status(500).json({
-            message: "An error occurred on the server"
-        })
-    }
-}
-
 const remove = async (req: Request, res: Response) => {
     try {
 
@@ -85,6 +70,5 @@ export default {
     create,
     findById,
     update,
-    updateById,
     remove
 }
