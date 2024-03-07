@@ -52,12 +52,12 @@ const update = async (req: Request, res: Response) => {
 const remove = async (req: Request, res: Response) => {
     try {
 
-        const { id } = req.params
+        const { userId } = req;
 
-        await deleteUser(id);
+        await deleteUser(userId);
 
         return res.status(201).json({
-            message: "User deleted with success!"
+            message: "Your profile was deleted with success!"
         });
     } catch (error) {
         return res.status(500).json({
