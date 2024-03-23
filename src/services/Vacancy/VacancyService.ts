@@ -22,7 +22,18 @@ const vacancyAllProjection = {
 
 const createVacancy = async (vacancy: IVacancyWithUserId) => {
     try {
-        return await Vacancy.create(vacancy);
+        let vacancyCreated = await Vacancy.create(vacancy);
+
+        let vacancyToReturn = {
+            id: vacancyCreated.id,
+            companyName: vacancyCreated.companyName,
+            remuneration: vacancyCreated.remuneration,
+            status: vacancyCreated.status,
+            candidatureDate: vacancyCreated.candidatureDate,
+            lastContact: vacancyCreated.lastContact
+        };
+
+        return vacancyToReturn;
     } catch (error) {
         throw error;
     }
