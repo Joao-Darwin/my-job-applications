@@ -36,6 +36,14 @@ const findVacancyFromUserService = async (userId: string) => {
     }
 }
 
+const findVacancyByIdService = async (vacancyId: string) => {
+    try {
+        return await Vacancy.findById(vacancyId, vacancyByIdProjection);
+    } catch (error) {
+        throw error;
+    }
+}
+
 const updateVacancyService = async (vacancyUpdate: IVacancyRequest, vacancyIdToUpdate: string) => {
     try {
         let vacancy = await Vacancy.findById(vacancyIdToUpdate, vacancyByIdProjection);
@@ -66,6 +74,7 @@ const deleteVacancyService = async (vacancyId: string) => {
 export {
     createVacancy,
     findVacancyFromUserService,
+    findVacancyByIdService,
     updateVacancyService,
     deleteVacancyService
 };

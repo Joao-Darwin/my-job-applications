@@ -6,6 +6,7 @@ const vacancyRouters = Router();
 
 vacancyRouters.post("/", AuthMiddleware, VacancyController.create);
 vacancyRouters.get("/", AuthMiddleware, VacancyController.findVacancyFromUser);
+vacancyRouters.get("/:id", AuthMiddleware, VacancyController.findVacancyById);
 vacancyRouters.put("/:id", AuthMiddleware, VacancyController.updateVacancy);
 vacancyRouters.delete("/:id", AuthMiddleware, VacancyController.deleteVacancy);
 

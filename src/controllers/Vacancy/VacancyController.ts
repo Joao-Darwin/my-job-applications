@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import IVacancyRequest from "../../interfaces/dtos/request/IVacancyRequest";
-import { createVacancy, deleteVacancyService, findVacancyFromUserService, updateVacancyService } from "../../services/Vacancy/VacancyService";
+import { createVacancy, deleteVacancyService, findVacancyByIdService, findVacancyFromUserService, updateVacancyService } from "../../services/Vacancy/VacancyService";
 
 interface IVacancyWithUserId extends IVacancyRequest {
     user?: string
@@ -26,6 +26,20 @@ const findVacancyFromUser = async (req: Request, res: Response) => {
         let user = req.userId;
 
         const response = await findVacancyFromUserService(user);
+
+        return res.status(200).json(response);
+    } catch (error) {
+        return res.status(500).json({
+            message: "An error occurred on the server"
+        })
+    }
+}
+
+const findVacancyById = async (req: Request, res: Response) => {
+    try {
+        let vacancyId = req.params.id;
+
+        const response = await findVacancyByIdService(vacancyId);
 
         return res.status(200).json(response);
     } catch (error) {
@@ -69,6 +83,7 @@ const deleteVacancy = async (req: Request, res: Response) => {
 export default {
     create,
     findVacancyFromUser,
+    findVacancyById,
     updateVacancy,
     deleteVacancy
 }
