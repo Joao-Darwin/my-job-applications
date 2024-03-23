@@ -13,6 +13,6 @@ const basePathUrlApi = "/api";
 
 app.use(`${basePathUrlApi}/auth`, authRouters);
 app.use(`${basePathUrlApi}/users`, userRouters);
-app.use(`${basePathUrlApi}/vancancies`, vacancyRouters);
+app.use(`${basePathUrlApi}/vacancies`, vacancyRouters);
 
 export default app;
