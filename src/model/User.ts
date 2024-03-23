@@ -39,10 +39,10 @@ const userSchema = new Schema<IUser>({
     },
     vagas: [{
         type: Schema.Types.UUID, 
-        ref: 'Vancancy'
+        ref: 'Vacancy'
     }]
 })
 
-const User = model<IUser>("users", userSchema);
+const User = model<IUser>("User", userSchema);
 
 export default User;

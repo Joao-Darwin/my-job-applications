@@ -2,7 +2,7 @@ import { randomUUID } from "crypto";
 import { Schema, model } from "mongoose";
 import IVacancy from "../interfaces/model/IVancancy";
 
-const vancancySchema = new Schema<IVacancy>({
+const vacancySchema = new Schema<IVacancy>({
     _id: {
         type: String,
         default: () => randomUUID()
@@ -32,6 +32,6 @@ const vancancySchema = new Schema<IVacancy>({
     }
 })
 
-const Vancancy = model<IVacancy>("Vancancy", vancancySchema);
+const Vacancy = model<IVacancy>("Vacancy", vacancySchema);
 
-export default Vancancy;
+export default Vacancy;
