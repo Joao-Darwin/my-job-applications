@@ -55,8 +55,17 @@ const updateVacancyService = async (vacancyUpdate: IVacancyRequest, vacancyIdToU
     }
 }
 
+const deleteVacancyService = async (vacancyId: string) => {
+    try {
+        await Vacancy.deleteOne({_id: vacancyId});
+    } catch (error) {
+        throw error;
+    }
+}
+
 export {
     createVacancy,
     findVacancyFromUserService,
-    updateVacancyService
+    updateVacancyService,
+    deleteVacancyService
 };
